@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#88d1ff">
+  <title>观猹开学季｜出发吧！少年</title>
+  <style>
+    :root{--page-width:800;--page-height:7969;--green:#4f8e41;--ink:#1d1d1d}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:#e8edf0}
+    body{margin:0;font-family:"Alibaba PuHuiTi 2.0","阿里巴巴普惠体 2.0","PingFang SC",sans-serif;color:var(--ink)}
+    .progress{position:fixed;z-index:20;left:0;top:0;width:100%;height:4px;background:rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+    .progress>i{display:block;width:0;height:100%;background:#4f8e41;transition:width .08s linear}
+    .page{position:relative;width:min(100%,800px);margin:0 auto;background:#88d1ff;box-shadow:0 0 40px rgba(0,0,0,.14);overflow:hidden}
+    .art{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+    .hotspot{position:absolute;z-index:4;border:0;background:transparent;cursor:pointer;border-radius:18px;color:transparent;font:inherit}
+    .hotspot:focus-visible{outline:4px solid #fff;box-shadow:0 0 0 8px rgba(79,142,65,.85)}
+    @media(hover:hover){.hotspot:hover{background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 2px rgba(255,255,255,.65)}}
+    .token{left:44.35%;top:32.44%;width:30%;height:.96%}
+    .token-help{left:66.5%;top:33.94%;width:21.8%;height:1.1%}
+    .activity-link{left:6.25%;top:75.41%;width:87.5%;height:4.23%}
+    .question-one{left:6.25%;top:83.75%;width:91%;height:1.32%}
+    .question-two{left:6.25%;top:91.73%;width:91%;height:1.32%}
+
+    .rail{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain}
+    .rail::-webkit-scrollbar{display:none}
+    .product-rail{position:absolute;z-index:6;left:1.5%;top:39.5%;width:98.5%;height:5.4%;display:flex;gap:0;overflow-x:auto;padding:0 5% 0 0;touch-action:pan-x}
+    .product-card{flex:0 0 40.25%;height:100%;border:0;padding:0;background:transparent;scroll-snap-align:start;cursor:pointer}
+    .product-card img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(91,58,6,.15))}
+
+    .course-card{position:absolute;z-index:6;border:0;outline:0;padding:0;background:transparent;cursor:pointer;transform-origin:50% 12%;will-change:transform;-webkit-appearance:none;appearance:none}
+    .course-card:focus,.course-card:focus-visible{outline:0}
+    .course-card img{display:block;width:100%;height:100%;object-fit:contain}
+    .course-pm{left:4.5%;top:59.69%;width:48.75%;height:5.16%;animation:sway-a 4.8s ease-in-out infinite}
+    .course-fde{left:46.25%;top:59.43%;width:48.63%;height:5.16%;animation:sway-b 5.2s ease-in-out -.8s infinite}
+    .course-drama{left:7.1%;top:63.87%;width:47.75%;height:5.07%;animation:sway-b 4.5s ease-in-out -1.7s infinite}
+    .course-more{left:47.6%;top:63.72%;width:47.25%;height:5.02%;animation:sway-a 5.5s ease-in-out -2.3s infinite}
+    @keyframes sway-a{0%,100%{transform:rotate(-1.15deg) translateY(0)}50%{transform:rotate(1.15deg) translateY(-4px)}}
+    @keyframes sway-b{0%,100%{transform:rotate(1deg) translateY(-2px)}50%{transform:rotate(-1.2deg) translateY(3px)}}
+
+    .plane-stage{position:absolute;z-index:7;left:4.5%;top:49.24%;width:89.88%;height:4.61%;overflow:visible;pointer-events:none;background:transparent}
+    .plane-stage img{width:100%;height:100%;object-fit:contain;transform:translateX(120%);opacity:0;will-change:transform}
+    .plane-stage.arrived img{animation:fly-right-to-left 4.2s cubic-bezier(.18,.68,.24,1) forwards}
+    @keyframes fly-right-to-left{
+      0%{transform:translateX(120%);opacity:0}
+      3%{opacity:1}
+      100%{transform:translateX(0);opacity:1}
+    }
+
+    .question-art{position:absolute;z-index:6;left:3.5%;width:93%;height:auto;pointer-events:none}
+    .question-art-one{top:83.62%}.question-art-two{top:91.6%}
+    .answer-rail{position:absolute;z-index:7;left:3.5%;width:93%;height:5.9%;display:flex;gap:0;overflow-x:auto;padding:0;touch-action:pan-x;scroll-snap-type:x mandatory}
+    .answer-rail-one{top:85.56%}.answer-rail-two{top:93.54%}
+    .answer-card{flex:0 0 100%;min-width:100%;height:100%;border:0;outline:0;padding:0;background:transparent;scroll-snap-align:start;scroll-snap-stop:always;cursor:pointer;-webkit-appearance:none;appearance:none}
+    .answer-card:focus,.answer-card:focus-visible{outline:0}
+    .answer-card img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 7px rgba(117,75,15,.12))}
+    .swipe-hint{position:absolute;z-index:8;right:2.2%;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.88);color:#765026;font-size:clamp(9px,1.55vw,12px);font-weight:800;box-shadow:0 2px 6px rgba(76,46,0,.18);pointer-events:none}
+    .product-hint{top:43.37%}.answer-hint{top:91.12%}
+    .top{position:fixed;z-index:12;right:max(16px,calc((100vw - 800px)/2 + 18px));bottom:max(18px,env(safe-area-inset-bottom));width:46px;height:46px;border:2px solid #111;border-radius:50%;background:#fdf253;color:#111;font-size:22px;font-weight:900;box-shadow:3px 4px 0 #111;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s}
+    .top.show{opacity:1;pointer-events:auto;transform:none}
+    .toast{position:fixed;z-index:30;left:50%;bottom:max(78px,calc(env(safe-area-inset-bottom) + 78px));transform:translate(-50%,16px);padding:10px 16px;border:2px solid #111;border-radius:999px;background:#fff;color:#111;font-size:14px;font-weight:700;box-shadow:3px 4px 0 #111;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:800px){html{background:#88d1ff}.page{box-shadow:none}.top{right:16px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress>i,.top,.toast{transition:none}.course-card{animation:none}.plane-stage.arrived img{animation:none;transform:none;opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+  <main class="page" aria-label="观猹开学季活动长页">
+    <img class="art" src="assets/exported/背景.png" alt="观猹开学季：出发吧，少年。包含新生福利、AI 产品工具箱、观猹学社课程和观猹员问答。">
+    <button class="hotspot token" data-link="token" data-action="领取 Token 卡" aria-label="领取 Token 卡">领取 Token 卡</button>
+    <button class="hotspot token-help" data-link="tokenTutorial" data-action="查看 Token 使用教程" aria-label="查看 Token 使用教程">Token 使用教程</button>
+
+    <section class="product-rail rail" aria-label="新生 AI 产品工具箱，可左右滑动">
+      <button class="product-card" data-link="product1" data-action="查看 AI 产品一"><img src="assets/exported/product-01.png" alt="AI 产品推荐卡片一"></button>
+      <button class="product-card" data-link="product2" data-action="查看 AI 产品二"><img src="assets/exported/product-02.png" alt="AI 产品推荐卡片二"></button>
+      <button class="product-card" data-link="product3" data-action="查看 AI 产品三"><img src="assets/exported/product-03.png" alt="AI 产品推荐卡片三"></button>
+    </section>
+    <span class="swipe-hint product-hint">← 左右滑动 →</span>
+
+    <div class="plane-stage" id="planeStage" aria-hidden="true"><img src="assets/exported/plane-banner-trimmed.png" alt=""></div>
+
+    <button class="course-card course-pm" data-link="coursePm" data-action="查看 AI PM 共学营" aria-label="查看 AI PM 共学营"><img src="assets/exported/AI PM 共学营.png" alt="AI PM 共学营"></button>
+    <button class="course-card course-fde" data-link="courseFde" data-action="查看 FDE 共学营" aria-label="查看 FDE 共学营"><img src="assets/exported/FDE 共学营.png" alt="FDE 共学营"></button>
+    <button class="course-card course-drama" data-link="courseDrama" data-action="查看 AI 漫剧共学营" aria-label="查看 AI 漫剧共学营"><img src="assets/exported/AI 漫剧.png" alt="AI 漫剧共学营"></button>
+    <button class="course-card course-more" data-link="courseMore" data-action="查看更多课程" aria-label="查看更多课程"><img src="assets/exported/更多课程 敬请期待.png" alt="更多课程敬请期待"></button>
+
+    <button class="hotspot activity-link" data-link="activity" data-action="进入 AI 的问题，观猹员答活动帖" aria-label="进入 AI 的问题，观猹员答活动帖">活动帖子</button>
+    <img class="question-art question-art-one" src="assets/exported/问题1.png" alt="对于刚接触 AI 的同学，你想对他们说什么？">
+    <button class="hotspot question-one" data-link="question1" data-action="查看问题帖子：对于刚接触 AI 的同学，你想对他们说什么" aria-label="查看第一个问题帖子">第一个问题帖子</button>
+    <section class="answer-rail answer-rail-one rail" aria-label="第一组观猹员回答，可左右滑动">
+      <button class="answer-card" data-link="answer1" data-action="查看观猹员回答正文"><img src="assets/exported/回答1.png" alt="观猹员回答一"></button>
+      <button class="answer-card" data-link="answer2" data-action="查看下一篇观猹员回答"><img src="assets/exported/回答2.png" alt="观猹员回答二"></button>
+    </section>
+    <span class="swipe-hint answer-hint">← 滑动查看更多回答 →</span>
+    <img class="question-art question-art-two" src="assets/exported/问题1-1.png" alt="第二个 AI 问题">
+    <button class="hotspot question-two" data-link="question2" data-action="查看问题帖子：如果 AI 什么都会，那我们还要学什么" aria-label="查看第二个问题帖子">第二个问题帖子</button>
+    <section class="answer-rail answer-rail-two rail" aria-label="第二组观猹员回答，可左右滑动">
+      <button class="answer-card" data-link="answer3" data-action="查看第二组观猹员回答一"><img src="assets/exported/回答1-1.png" alt="第二组观猹员回答一"></button>
+      <button class="answer-card" data-link="answer4" data-action="查看第二组观猹员回答二"><img src="assets/exported/回答2-1.png" alt="第二组观猹员回答二"></button>
+    </section>
+  </main>
+  <button class="top" id="top" aria-label="返回顶部">↑</button>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const progress=document.getElementById('progress');
+    const topButton=document.getElementById('top');
+    const toast=document.getElementById('toast');
+    let toastTimer;
+    function syncScroll(){
+      const max=document.documentElement.scrollHeight-innerHeight;
+      progress.style.width=(max>0?scrollY/max*100:0)+'%';
+      topButton.classList.toggle('show',scrollY>700);
+    }
+    addEventListener('scroll',syncScroll,{passive:true});
+    addEventListener('resize',syncScroll,{passive:true});
+    topButton.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+    const LINKS={
+      token:'',tokenTutorial:'',
+      product1:'',product2:'',product3:'',product4:'',
+      coursePm:'',courseFde:'',courseDrama:'',courseMore:'',
+      activity:'',question1:'',question2:'',answer1:'',answer2:'',answer3:'',answer4:''
+    };
+    document.querySelectorAll('[data-link]').forEach(button=>button.addEventListener('click',()=>{
+      const url=LINKS[button.dataset.link];
+      if(url){location.href=url;return}
+      toast.textContent=button.dataset.action+'：链接待接入';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer=setTimeout(()=>toast.classList.remove('show'),1800);
+    }));
+    const planeStage=document.getElementById('planeStage');
+    const planeObserver=new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){
+        planeStage.classList.add('arrived');
+        planeObserver.disconnect();
+      }
+    },{threshold:.42});
+    planeObserver.observe(planeStage);
+    syncScroll();
+  </script>
+</body>
+</html>
