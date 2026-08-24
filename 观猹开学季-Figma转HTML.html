@@ -56,7 +56,7 @@
     .answer-card:focus,.answer-card:focus-visible{outline:0}
     .answer-card img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 5px 7px rgba(117,75,15,.12))}
     .swipe-hint{position:absolute;z-index:8;right:2.2%;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.88);color:#765026;font-size:clamp(9px,1.55vw,12px);font-weight:800;box-shadow:0 2px 6px rgba(76,46,0,.18);pointer-events:none}
-    .product-hint{top:43.37%}.answer-hint{top:91.12%}
+    .product-hint{top:43.37%}
     .top{position:fixed;z-index:12;right:max(16px,calc((100vw - 800px)/2 + 18px));bottom:max(18px,env(safe-area-inset-bottom));width:46px;height:46px;border:2px solid #111;border-radius:50%;background:#fdf253;color:#111;font-size:22px;font-weight:900;box-shadow:3px 4px 0 #111;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s}
     .top.show{opacity:1;pointer-events:auto;transform:none}
     .toast{position:fixed;z-index:30;left:50%;bottom:max(78px,calc(env(safe-area-inset-bottom) + 78px));transform:translate(-50%,16px);padding:10px 16px;border:2px solid #111;border-radius:999px;background:#fff;color:#111;font-size:14px;font-weight:700;box-shadow:3px 4px 0 #111;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}
@@ -93,7 +93,6 @@
       <button class="answer-card" data-link="answer1" data-action="查看观猹员回答正文"><img src="assets/exported/回答1.png" alt="观猹员回答一"></button>
       <button class="answer-card" data-link="answer2" data-action="查看下一篇观猹员回答"><img src="assets/exported/回答2.png" alt="观猹员回答二"></button>
     </section>
-    <span class="swipe-hint answer-hint">← 滑动查看更多回答 →</span>
     <img class="question-art question-art-two" src="assets/exported/问题1-1.png" alt="第二个 AI 问题">
     <button class="hotspot question-two" data-link="question2" data-action="查看问题帖子：如果 AI 什么都会，那我们还要学什么" aria-label="查看第二个问题帖子">第二个问题帖子</button>
     <section class="answer-rail answer-rail-two rail" aria-label="第二组观猹员回答，可左右滑动">
